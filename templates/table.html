@@ -1,0 +1,45 @@
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title>FIDS</title>
+	<meta name="generator" content="LibreOffice 5.1.6.2 (Linux)"/>
+	<meta name="created" content="00:00:00"/>
+	<meta name="changed" content="2019-06-25T10:22:26.868502601"/>
+	<meta name="" content=""/>
+</head>
+<body lang="en-IN" dir="ltr">
+<form action="index.html" method="post">
+	<p><select name="airport_select"  style="width: 2.49cm; height: 0.8cm">
+		<option value="UDR" selected>Udaipur
+		<option value="DEL">Delhi
+		<option value="BOM">Mumbai</option>
+	</select> 
+	</p>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            {% for k in header %}
+            <th>{{k}}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for r in rows %}
+            <tr>
+                <td>{{r.id}}</td>
+                <td>{{r.chemblid}}</td>
+                <td>{{r.prefName}}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</body>
+</html>

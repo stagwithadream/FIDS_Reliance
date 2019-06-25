@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>FIDS Reliance</title>
+    <link rel="stylesheet" href="{% static "infoDisplay/css/mystyle.css" %}">
+  </head>
+  <body>
+<h1>hello</h1>
+
+
+
+<div class="info display">
+{% if flight_data %}
+<table>
+  <thead>
+    <th>Flight Number</th>
+    <th>Origin</th>
+    <th>Origin Time</th>
+    <th>Arrival Time</th>
+    <th>Airlines</th>
+  </thead>
+{% for flights in flight_data %}
+<tr>
+  {% for flight in flights %}
+  <td>{{flight}}</td>
+  {% endfor %}
+</tr>
+{% endfor %}
+</table>
+
+{% else %}
+<p>No Flight data found</p>
+
+{% endif%}
+
+</div>
+  </body>
+</html>
