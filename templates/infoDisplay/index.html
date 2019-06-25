@@ -7,8 +7,17 @@
     <link rel="stylesheet" href="{% static "infoDisplay/css/mystyle.css" %}">
   </head>
   <body>
-<h1>hello</h1>
-
+<h1>airports</h1>
+<form action="/index" method="post">
+  {% csrf_token %}
+	<p><select name="airport"  style="width: 2.49cm; height: 0.8cm">
+		<option value="UDR" selected>Udaipur
+		<option value="DEL">Delhi
+		<option value="BOM">Mumbai</option>
+	</select>
+  <button type="submit">Go</button>
+	</p>
+</form>
 
 
 <div class="info display">
@@ -31,7 +40,7 @@
 </table>
 
 {% else %}
-<p>No Flight data found</p>
+<p>Kindly select an airport </p>
 
 {% endif%}
 

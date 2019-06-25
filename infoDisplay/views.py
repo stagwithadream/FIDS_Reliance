@@ -1,13 +1,17 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+import requests
+from bs4 import BeautifulSoup
+import json
+import csv
 # Create your views here.
 def index(request):
+
+    if request.method=='POST':
         #Processing the web page using json object
         #import statements
-        import requests
-        from bs4 import BeautifulSoup
-        import json
-        import csv
+        airport=request.POST.get('airport',None)
+
 
         Hour = ['0', '6', '12', '18']
         a='__NEXT_DATA__ = '
@@ -26,7 +30,7 @@ def index(request):
 
 
 
-            response = requests.get('https://www.flightstats.com/v2/flight-tracker/arrivals/DEL/?year=2019&month=6&date=25&hour='+h)
+            response = requests.get('https://www.flightstats.com/v2/flight-tracker/arrivals/'+airport+'/?year=2019&month=6&date=25&hour='+h)
             #getting the input from the web page
 
 
@@ -62,3 +66,5 @@ def index(request):
         my_data={'flight_data':Flight_Data}
 
         return render(request,'infoDisplay/index.html',context=my_data)
+    else:
+        return render(request,'infoDisplay/index.html')
