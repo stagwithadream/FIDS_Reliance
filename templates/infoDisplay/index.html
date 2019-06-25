@@ -11,10 +11,18 @@
 <form action="/index" method="post">
   {% csrf_token %}
 	<p><select name="airport"  style="width: 2.49cm; height: 0.8cm">
-		<option value="UDR" selected>Udaipur
-		<option value="DEL">Delhi
+		<option value="UDR" selected>Udaipur</option>
+		<option value="DEL">Delhi</option>
 		<option value="BOM">Mumbai</option>
-	</select>
+    <option value="HYD">Hyderabad</option>
+    <option value="JAI">Jaipur</option>
+    <option value="AMD">Ahmedabad</option>
+    <option value="MAA">Chennai</option>
+    <option value="COK">Cochin</option>
+</select>
+
+</select>
+
   <button type="submit">Go</button>
 	</p>
 </form>
